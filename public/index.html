@@ -1,0 +1,15 @@
+<!-- Cloudflare R2 엔드포인트로 전송 -->
+<script>
+    async function uploadImage() {
+      const file = document.getElementById('imageInput').files[0];
+      const formData = new FormData();
+      formData.append('image', file);
+  
+      const response = await fetch('https://your-worker.your-subdomain.workers.dev/upload', {
+        method: 'POST',
+        body: formData
+      });
+      
+      if (response.ok) alert('전송 성공!');
+    }
+  </script>
