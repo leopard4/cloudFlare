@@ -1,15 +1,25 @@
-<!-- Cloudflare R2 엔드포인트로 전송 -->
-<script>
-    async function uploadImage() {
-      const file = document.getElementById('imageInput').files[0];
-      const formData = new FormData();
-      formData.append('image', file);
-  
-      const response = await fetch('https://17a2389f-your-worker.aksgml937.workers.dev//upload', {
-        method: 'POST',
-        body: formData
-      });
-      
-      if (response.ok) alert('전송 성공!');
-    }
-  </script>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>이미지 업로드</title>
+</head>
+<body>
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="uploadImage()">전송</button>
+    <div id="errorMessage" style="color: red; display: none;">업로드 실패!</div>
+    <script>
+      async function uploadImage() {
+        const file = document.getElementById('imageInput').files[0];
+        const formData = new FormData();
+        formData.append('image', file);
+    
+        const response = await fetch('https://17a2389f-your-worker.aksgml937.workers.dev//upload', {
+          method: 'POST',
+          body: formData
+        });
+        
+        if (response.ok) alert('전송 성공!');
+      }
+    </script>
+</body>
+</html>
