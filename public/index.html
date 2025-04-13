@@ -72,6 +72,7 @@
     <button onclick="uploadImage()">전송</button>
     <div id="errorMessage" style="color: red; display: none;">아마 전송됨!</div>
     <div id="successMessage" style="color: green; display: none;">전송 성공!</div>
+    
   </div>
 
   <script>
@@ -98,9 +99,9 @@
           body: formData
         });
 
-        const resultText = await response.text();
-        console.log('응답:', resultText);
-        if (response.status >= 200 && response.status < 300) {
+        const result = await response.json();
+        console.log('응답:', result);
+        if (result.status === 'success') {
           successMsg.style.display = 'block';
         } else {
           errorMsg.style.display = 'block';
