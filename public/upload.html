@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>사진 업로드</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    input[type="file"] {
+      margin: 1rem 0;
+    }
+    #status {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    #preview {
+      margin-top: 2rem;
+      display: none;
+    }
+    img {
+      max-width: 100%;
+      max-height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>사진 업로드</h1>
+  <p>사진을 선택하면 자동으로 업로드됩니다.</p>
+
+  <input type="file" accept="image/*" id="fileInput" />
+  <div id="status"></div>
+
+  <div id="preview">
+    <h2>변환된 이미지</h2>
+    <img id="resultImage" src="" alt="변환 이미지" />
+    <br><br>
+    <a id="downloadBtn" href="#" download="result.jpg">📥 이미지 다운로드</a>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const status = document.getElementById('status');
+    const preview = document.getElementById('preview');
+    const resultImage = document.getElementById('resultImage');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    const params = new URLSearchParams(window.location.search);
+    const txId = params.get('tx_id');
+    const clientId = params.get('client_id');
+
+    if (!txId || !clientId) {
+      status.textContent = '잘못된 접근입니다 (tx_id 또는 client_id 누락).';
+      fileInput.disabled = true;
+    }
+
+    fileInput.addEventListener('change', async () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      status.textContent = '업로드 중...';
+
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('client_id', clientId);
+      formData.append('method', 'preset');
+
+      try {
+        const res = await fetch(`https://api.lumina-core.store/upload/photo`, {
+          method: 'POST',
+          body: formData
+        });
+
+        if (res.ok) {
+          const json = await res.json();
+          status.textContent = `✅ 업로드 완료! 이미지 생성 중...`;
+          startPolling();
+        } else {
+          const error = await res.text();
+          status.textContent = `❌ 업로드 실패: ${error}`;
+        }
+      } catch (err) {
+        status.textContent = `❌ 업로드 에러: ${err}`;
+      }
+    });
+
+    async function startPolling() {
+      let retry = 0;
+      const maxRetry = 30; // 최대 30초 대기
+
+      const interval = setInterval(async () => {
+        try {
+          const res = await fetch(`https://api.lumina-core.store/download/${txId}`);
+          if (res.ok) {
+            const blob = await res.blob();
+            const url = URL.createObjectURL(blob);
+            resultImage.src = url;
+            downloadBtn.href = url;
+
+            preview.style.display = 'block';
+            status.textContent = '✅ 이미지 생성 완료';
+            clearInterval(interval);
+          } else {
+            retry++;
+            if (retry > maxRetry) {
+              clearInterval(interval);
+              status.textContent = '⚠️ 이미지 생성이 지연되고 있습니다. 나중에 다시 확인해주세요';
+            }
+          }
+        } catch (err) {
+          retry++;
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
