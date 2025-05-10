@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>이미지 다운로드</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 30px; }
+    img { max-width: 90%; border-radius: 8px; margin-top: 20px; }
+    .error { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>📥 이미지 다운로드</h1>
+  <div id="content">잠시만 기다려주세요...</div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const txId = urlParams.get("tx_id");
+    const contentDiv = document.getElementById("content");
+
+    async function fetchImage() {
+      const res = await fetch(`/download/${txId}`);
+      if (res.status === 200) {
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        contentDiv.innerHTML = `
+          <img src="${url}" alt="Generated Image">
+          <br><a href="${url}" download="image.jpg">
+            <button style="margin-top: 20px; font-size: 18px;">이미지 저장</button>
+          </a>
+        `;
+      } else if (res.status === 403) {
+        contentDiv.innerHTML = `<p class="error">⚠️ 이미 다운로드된 트랜잭션입니다.</p>`;
+      } else if (res.status === 404) {
+        contentDiv.innerHTML = `<p class="error">⏳ 아직 이미지가 준비되지 않았습니다.</p>`;
+        setTimeout(fetchImage, 5000);
+      } else {
+        contentDiv.innerHTML = `<p class="error">❌ 오류가 발생했습니다 (${res.status})</p>`;
+      }
+    }
+
+    if (txId) fetchImage();
+    else contentDiv.innerHTML = `<p class="error">tx_id 파라미터가 없습니다.</p>`;
+  </script>
+</body>
+</html>

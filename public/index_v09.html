@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>루미나코어 소개 및 이미지 업로드</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 40px 20px;
+      background: #f8f9fa;
+    }
+    .intro, .upload-section, .partner-section {
+      max-width: 600px;
+      width: 100%;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 24px;
+    }
+    .partner-section {
+      display: none;
+    }
+    .origin {
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 8px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="intro">
+    <h1>루미나코어 (L-Core)</h1>
+    <p class="origin">“루미나코어(LuminaCore)는 ‘빛(Lumina)’과 ‘핵심(Core)’의 합성어로, 기술과 창의성의 중심에서 새로운 가치를 밝힌다는 의미입니다.”</p>
+    <button onclick="togglePartner()">🤝 파트너십 제안 보기</button>
+  </div>
+
+  <div class="partner-section" id="partnerSection">
+    <p>
+      루미나코어는 AI 기반 무인 사진 인화 키오스크를 통해,
+      누구나 쉽고 빠르게 고품질 사진을 출력할 수 있는 솔루션을 제공합니다.
+      간편한 설치, 무인 운영, 추가 수익 창출을 모두 지원하는 스마트 비즈니스 파트너입니다.
+    </p>
+    <p style="margin-top: 2rem; font-size: 0.9rem; color: #555;">문의: aksgml937@gmail.com</p>
+  </div>
+
+  <div class="upload-section">
+    <h3>이미지 전송</h3>
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="uploadImage()">전송</button>
+    <div id="errorMessage" style="color: red; display: none;">전송 실패!</div>
+    <div id="successMessage" style="color: green; display: none;">전송 성공!</div>
+    
+  </div>
+
+  <script>
+    function togglePartner() {
+      const section = document.getElementById('partnerSection');
+      section.style.display = section.style.display === 'block' ? 'none' : 'block';
+    }
+
+    async function uploadImage() {
+      const file = document.getElementById('imageInput').files[0];
+      if (!file) return;
+
+      const formData = new FormData();
+      formData.append('image', file);
+
+      const errorMsg = document.getElementById('errorMessage');
+      const successMsg = document.getElementById('successMessage');
+      errorMsg.style.display = 'none';
+      successMsg.style.display = 'none';
+
+      try {
+        const response = await fetch('https://your-worker.aksgml937.workers.dev/upload', {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.json();
+        console.log('응답:', result);
+        if (result.status === 'success') {
+          successMsg.style.display = 'block';
+        } else {
+          errorMsg.style.display = 'block';
+        }
+      } catch (error) {
+        console.error('예외 발생:', error);
+        errorMsg.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
