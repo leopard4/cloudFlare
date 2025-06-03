@@ -36,6 +36,7 @@
 
       const formData = new FormData();
       formData.append("file", file);
+      formData.append("tx_id", txId); 
       formData.append("client_id", clientId);
       formData.append("method", "preset");
       formData.append("output_format", "original");
