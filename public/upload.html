@@ -4,9 +4,97 @@
   <meta charset="UTF-8">
   <title>사진 업로드</title>
   <style>
-    body { font-family: sans-serif; text-align: center; padding: 40px; }
-    input, button { font-size: 18px; margin-top: 20px; }
+    body {
+      font-family: 'Inter', sans-serif; /* Inter 폰트 사용 */
+      text-align: center;
+      padding: 40px;
+      background-color: #f0f4f8; /* 부드러운 배경색 */
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh; /* 전체 화면 높이 사용 */
+      margin: 0;
+    }
+    h1 {
+      font-size: 3em; /* 헤더 크기 증가 */
+      color: #6A1B9A; /* 메인 테마 색상 */
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+    p {
+      font-size: 1.2em; /* 문단 텍스트 크기 증가 */
+      margin-bottom: 30px;
+      color: #555;
+    }
+    form {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 20px; /* 둥근 모서리 */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* 그림자 효과 */
+      width: 90%; /* 너비 조정 */
+      max-width: 500px; /* 최대 너비 설정 */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    input[type="file"] {
+      font-size: 1.2em; /* 파일 선택 버튼 폰트 크기 증가 */
+      margin-top: 20px;
+      padding: 15px; /* 패딩 추가 */
+      border: 2px solid #00BCD4; /* 테마에 맞는 테두리 색상 */
+      border-radius: 10px; /* 둥근 모서리 */
+      width: 100%; /* 너비 꽉 채우기 */
+      box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
+    }
+    input[type="submit"] {
+      font-size: 1.8em; /* 제출 버튼 폰트 크기 대폭 증가 */
+      margin-top: 40px; /* 위쪽 여백 증가 */
+      padding: 20px 40px; /* 패딩 대폭 증가 */
+      background-color: #FFC107; /* 강조 색상 */
+      color: #6A1B9A; /* 텍스트 색상 */
+      border: none;
+      border-radius: 30px; /* 매우 둥근 모서리 */
+      cursor: pointer;
+      transition: all 0.3s ease; /* 호버 효과를 위한 전환 */
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2); /* 그림자 효과 */
+      font-weight: bold;
+      width: 100%; /* 너비 꽉 채우기 */
+      max-width: 300px; /* 최대 너비 설정 */
+    }
+    input[type="submit"]:hover {
+      background-color: #FFD54F; /* 호버 시 색상 변경 */
+      box-shadow: 0 12px 20px rgba(0,0,0,0.3); /* 호버 시 그림자 강화 */
+      transform: translateY(-3px); /* 약간 위로 이동 */
+    }
+    #result {
+      margin-top: 30px; /* 결과 메시지 위쪽 여백 증가 */
+      font-size: 1.5em; /* 결과 메시지 폰트 크기 증가 */
+      font-weight: bold;
+    }
+    /* 반응형 디자인 */
+    @media (max-width: 600px) {
+      body {
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2.5em;
+      }
+      p {
+        font-size: 1em;
+      }
+      input[type="file"], input[type="submit"] {
+        font-size: 1.5em;
+        padding: 15px 30px;
+      }
+      input[type="submit"] {
+        max-width: 250px;
+      }
+    }
   </style>
+  <!-- Google Fonts Inter 로드 (선택 사항, 필요시 주석 해제) -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> -->
 </head>
 <body>
   <h1>📷 사진 업로드</h1>
@@ -32,7 +120,10 @@
 
       const fileInput = form.querySelector("input[type='file']");
       const file = fileInput.files[0];
-      if (!file) return;
+      if (!file) {
+        resultDiv.innerHTML = "<b style='color:orange;'>⚠️ 파일을 선택해주세요!</b>";
+        return;
+      }
 
       const formData = new FormData();
       formData.append("file", file);
@@ -41,6 +132,8 @@
       formData.append("method", "preset");
       formData.append("output_format", "original");
 
+      resultDiv.innerHTML = "<b style='color:#6A1B9A;'>⏳ 업로드 중... 잠시만 기다려 주세요.</b>"; // 업로드 중 메시지
+      
       try {
         const res = await fetch("https://api.lumina-core.store/upload/photo", {
           method: "POST",
