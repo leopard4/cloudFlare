@@ -116,19 +116,31 @@
         const resultDiv = document.getElementById("result");
         const fileInput = document.getElementById("file");
         const fileChosenDiv = document.getElementById("file-chosen");
+        const submitButton = form.querySelector('input[type="submit"]'); // 제출 버튼 선택
+
+        const MAX_FILES = 20; // 최대 파일 개수 제한
 
         const urlParams = new URLSearchParams(window.location.search);
         const txId = urlParams.get("tx_id");
         const clientId = urlParams.get("client_id") || "kiosk01";
 
         // 파일 선택 시 선택된 파일 이름 표시
-        fileInput.addEventListener('change', () => {
-            if (fileInput.files.length > 0) {
-                fileChosenDiv.textContent = `${fileInput.files.length}개의 파일 선택됨`;
-            } else {
-                fileChosenDiv.textContent = '선택된 파일 없음';
-            }
-        });
+         fileInput.addEventListener('change', () => {
+        const numFiles = fileInput.files.length;
+        if (numFiles > MAX_FILES) {
+            fileChosenDiv.innerHTML = `<b style="color: red;">최대 ${MAX_FILES}개까지 선택 가능합니다. (${numFiles}개 선택됨)</b>`;
+            submitButton.disabled = true; // 업로드 버튼 비활성화
+            submitButton.style.opacity = '0.5';
+        } else if (numFiles > 0) {
+            fileChosenDiv.textContent = `${numFiles}개의 파일 선택됨`;
+            submitButton.disabled = false; // 업로드 버튼 활성화
+            submitButton.style.opacity = '1';
+        } else {
+            fileChosenDiv.textContent = '선택된 파일 없음';
+            submitButton.disabled = false;
+            submitButton.style.opacity = '1';
+        }
+    });
 
 
         form.addEventListener("submit", async (e) => {
