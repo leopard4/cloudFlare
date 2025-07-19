@@ -1,0 +1,244 @@
+/* Noto Sans KR 폰트 불러오기 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+
+/* === 1. 기본 및 공통 스타일 === */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #E0E0E0;
+    line-height: 1.8;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+h1, h2, h3 {
+    color: #FFFFFF;
+    letter-spacing: -1px;
+    font-weight: 900;
+}
+
+h1 { font-size: 3.5em; }
+h2 { font-size: 2.5em; text-align: center; margin-bottom: 60px; }
+h3 { font-size: 1.6em; }
+
+p {
+    font-size: 1.1em;
+    color: #BDBDBD;
+}
+
+.highlight {
+    color: #00A9FF;
+    font-weight: 700;
+}
+
+/* === 2. 재사용 컴포넌트 (버튼, 카드 등) === */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1em;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: #00A9FF;
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    background-color: #0086CC;
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #E0E0E0;
+    border: 2px solid #555;
+}
+
+.btn-secondary:hover {
+    background-color: #E0E0E0;
+    color: #121212;
+    border-color: #E0E0E0;
+}
+
+/* === 3. 네비게이션 및 푸터 (모든 페이지 공통) === */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #2a2a2a;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+nav .logo {
+    font-size: 1.5em;
+    font-weight: 900;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+nav .nav-links a {
+    color: #E0E0E0;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+nav .nav-links a:hover {
+    color: #00A9FF;
+}
+
+nav .nav-cta {
+    background-color: #00A9FF;
+    color: #FFFFFF;
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+
+nav .nav-cta:hover {
+    color: #FFFFFF;
+    background-color: #0086CC;
+}
+
+footer {
+    background-color: #1a1a1a;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9em;
+    color: #757575;
+    border-top: 1px solid #2a2a2a;
+}
+footer strong { color: #BDBDBD; }
+
+/* === 4. 페이지별 스타일 === */
+
+/* --- 메인 페이지 (index.html) --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    color: #fff;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1520467795206-62e33627e6ce?q=80&w=1887&auto=format&fit=crop') no-repeat center center;
+    background-size: cover;
+}
+
+.hero .hero-content {
+    max-width: 800px;
+}
+.hero p { font-size: 1.3em; color: #CFD8DC; margin-bottom: 40px; }
+.hero .cta-buttons { display: flex; gap: 20px; justify-content: center; }
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+.feature-item { padding: 20px; }
+.feature-item .icon { font-size: 3em; color: #00A9FF; }
+.feature-item h3 { margin-top: 20px; }
+
+.b2b-promo {
+    background-color: #1a1a1a;
+    padding: 80px 0;
+    text-align: center;
+}
+
+/* --- 제휴 페이지 (partnership.html) --- */
+.page-header {
+    padding-top: 150px;
+    padding-bottom: 80px;
+    text-align: center;
+    background-color: #1a1a1a;
+}
+.benefit-item, .process-item {
+    background-color: #1E1E1E;
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 5px solid #00A9FF;
+    margin-bottom: 20px;
+}
+.models {
+    display: flex; gap: 30px; justify-content: center; flex-wrap: wrap;
+}
+.model-card {
+    background-color: #1E1E1E; padding: 30px; border-radius: 8px; width: 300px;
+    text-align: center; border-top: 5px solid #00A9FF;
+}
+.model-card .price { font-size: 1.2em; color: #00A9FF; font-weight: 700; }
+
+/* --- 갤러리 페이지 (gallery.html) --- */
+.gallery-grid {
+    columns: 4 250px;
+    column-gap: 15px;
+}
+.gallery-grid img {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-grid img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 30px rgba(0, 169, 255, 0.4);
+}
+
+/* --- 소개 페이지 (about.html) --- */
+.vision-section { text-align: center; max-width: 800px; margin: 0 auto; }
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+.team-card {
+    background-color: #1a1a1a;
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+}
+.team-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #00A9FF;
+}
+.team-card h3 { margin-top: 20px; }
+.team-card .role { color: #00A9FF; font-weight: 700; }
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 2em; }
+    nav .nav-links { display: none; } /* 간단하게 모바일에서는 메뉴 숨김 처리 */
+    .hero .cta-buttons { flex-direction: column; }
+}

@@ -3,242 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LuminaCore의 AI 포토 스튜디오 'Lumina Art Studio' 공식 입점 제안 페이지. 당신의 공간을 특별한 예술적 경험의 장소로 만드세요.">
-    <title>LuminaCore | Lumina Art Studio 입점 제안</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
-
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #121212;
-            color: #E0E0E0;
-            line-height: 1.8;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1520467795206-62e33627e6ce?q=80&w=1887&auto=format&fit=crop') no-repeat center center;
-            background-size: cover;
-        }
-        header h1 {
-            font-size: 2.8em;
-            font-weight: 900;
-            margin: 0;
-            color: #FFFFFF;
-            letter-spacing: -1px;
-        }
-        header .brand {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #00A9FF; /* Signature Color */
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 1.2em;
-            color: #CFD8DC;
-        }
-        section {
-            padding: 60px 20px;
-            border-bottom: 1px solid #333;
-        }
-        h2 {
-            font-size: 2.2em;
-            font-weight: 700;
-            text-align: center;
-            color: #FFFFFF;
-            margin-bottom: 40px;
-        }
-        .highlight {
-            color: #00A9FF;
-            font-weight: 700;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .gallery img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .gallery img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(0, 169, 255, 0.4);
-        }
-        .benefits, .process {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-        .benefit-item, .process-item {
-            background-color: #1E1E1E;
-            padding: 30px;
-            border-radius: 8px;
-            border-left: 5px solid #00A9FF;
-        }
-        .benefit-item h3, .process-item h3 {
-            font-size: 1.4em;
-            margin-top: 0;
-            color: #FFFFFF;
-        }
-        .models {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .model-card {
-            background-color: #1E1E1E;
-            padding: 30px;
-            border-radius: 8px;
-            width: 300px;
-            text-align: center;
-            border-top: 5px solid #00A9FF;
-        }
-        .model-card h3 {
-            font-size: 1.5em;
-            color: #FFFFFF;
-        }
-        .model-card .price {
-            font-size: 1.2em;
-            color: #00A9FF;
-            font-weight: 700;
-        }
-        .cta {
-            text-align: center;
-            background-color: #1E1E1E;
-            padding: 60px 20px;
-        }
-        .cta-button {
-            display: inline-block;
-            background-color: #00A9FF;
-            color: #FFFFFF;
-            padding: 15px 40px;
-            font-size: 1.2em;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .cta-button:hover {
-            background-color: #0086CC;
-            transform: translateY(-3px);
-        }
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 0.9em;
-            color: #757575;
-        }
-        footer strong {
-            color: #BDBDBD;
-        }
-    </style>
+    <meta name="description" content="LuminaCore는 공간과 기술을 연결하여 새로운 사진 경험을 제공하는 AI 미디어 아트 플랫폼입니다.">
+    <title>LuminaCore | 당신의 공간이 예술이 되는 순간</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <div class="brand">Lumina Art Studio</div>
-        <h1>당신의 공간이 예술이 되는 순간</h1>
-        <p>최신 AI 기술로 고객에게 세상에 없던 사진 경험을 선물하세요.</p>
+        <nav>
+            <div class="container">
+                <a href="/" class="logo">LuminaCore</a>
+                <div class="nav-links">
+                    <a href="about.html">브랜드 소개</a>
+                    <a href="gallery.html">갤러리</a>
+                    <a href="partnership.html" class="nav-cta">파트너 제휴 문의</a>
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <div class="container">
-
-        <section id="about">
-            <h2>무엇이 다른가요?</h2>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px auto;">
-                <strong>Lumina Art Studio</strong>는 단순한 포토부스가 아닙니다. 터치 몇 번만으로 사용자의 얼굴을 명화, 영화, 애니메이션의 주인공으로 바꾸는 <span class="highlight">생성형 AI 기반의 미디어 아트 키오스크</span>입니다. 고객은 세상에 단 하나뿐인 자신만의 작품을 즉석에서 소장하게 됩니다.
-            </p>
-            <div class="gallery">
-                <img src="https://api.lumina-core.store/media/%EC%98%88%EC%8B%9C1.png" alt="AI네컷 원본">
-                <img src="https://api.lumina-core.store/media/%EC%98%88%EC%8B%9C2.png" alt="AI네컷 변환">
-                <img src="https://api.lumina-core.store/media/%EC%98%88%EC%8B%9C3.png" alt="오프숄더를 아름다운 드레스로 변환">
-            </div>
-        </section>
-
-        <section id="benefits">
-            <h2>사장님께 드리는 3가지 혜택</h2>
-            <div class="benefits">
-                <div class="benefit-item">
-                    <h3>ZERO-RISK 추가 수익 창출</h3>
-                    <p>사장님은 오직 <span class="highlight">0.5㎡의 공간과 전기, 인터넷</span>만 제공하시면 됩니다. 기기 설치부터 소모품 공급, A/S까지 모든 운영 비용과 책임은 100% 저희 LuminaCore가 부담합니다. 매장 운영에 전혀 신경 쓸 일 없이, 매월 추가 수익을 정산받으세요.</p>
-                </div>
-                <div class="benefit-item">
-                    <h3>강력한 집객 및 홍보 효과</h3>
-                    <p>SNS에 공유할 수밖에 없는 특별한 결과물은 그 자체로 최고의 온라인 마케팅 도구가 됩니다. 'AI 포토 맛집'으로 입소문이 나면, 고객들이 <span class="highlight">스스로 매장을 찾아오고, 더 오래 머무르게</span> 됩니다. 이는 자연스럽게 매장 전체 매출 증대로 이어집니다.</p>
-                </div>
-                <div class="benefit-item">
-                    <h3>매장의 차별화된 경쟁력</h3>
-                    <p>수많은 가게들 속에서, 고객의 기억에 남는 '무언가'가 있으신가요? Lumina Art Studio는 평범한 공간을 <span class="highlight">'특별한 경험을 할 수 있는 곳'</span>으로 바꾸어, 경쟁 매장과 비교할 수 없는 독보적인 아이덴티티를 부여합니다.</p>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>당신의 공간이 예술이 되는 순간</h1>
+                <p>LuminaCore의 AI 포토 스튜디오는 평범한 일상을 특별한 작품으로 만들고, 사람들의 발길이 머무는 매력적인 공간을 완성합니다.</p>
+                <div class="cta-buttons">
+                    <a href="gallery.html" class="btn btn-primary">AI 작품 구경하기</a>
+                    <a href="partnership.html" class="btn btn-secondary">무료 입점 제안받기</a>
                 </div>
             </div>
         </section>
 
-        <section id="models">
-            <h2>두 가지 파트너십 모델</h2>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px auto;">
-                매장의 특성과 사장님의 성향에 맞춰 가장 유리한 모델을 선택하실 수 있도록 두 가지 옵션을 준비했습니다.
-            </p>
-            <div class="models">
-                <div class="model-card">
-                    <h3>수익 분배 모델</h3>
-                    <p>가장 선호되는 안정적인 모델입니다. 발생한 총 매출(VAT 별도)을 정해진 비율로 나눕니다.</p>
-                    <div class="price">대표님 70% : 파트너 30%</div>
-                    <p style="font-size: 0.9em; color: #757575;">(초기 테스트에 대한 리스크가 전혀 없는 가장 합리적인 방식입니다.)</p>
-                </div>
-                <div class="model-card">
-                    <h3>고정 임대료 모델</h3>
-                    <p>유동인구가 보장된 곳에 추천합니다. 매출과 상관없이 매월 고정된 임대료를 지급받습니다.</p>
-                    <div class="price">월 [협의] 원</div>
-                     <p style="font-size: 0.9em; color: #757575;">(안정적이고 예측 가능한 수입을 선호하시는 사장님께 적합합니다.)</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="process">
-            <h2>입점 프로세스</h2>
-            <div class="process">
-                <div class="process-item">
-                    <h3>1. 입점 문의 및 상담</h3>
-                    <p>아래 '입점 문의하기' 버튼을 통해 연락처를 남겨주시면, LuminaCore의 정만희 대표가 직접 연락드려 매장 환경에 맞는 최적의 솔루션을 제안합니다.</p>
-                </div>
-                <div class="process-item">
-                    <h3>2. 계약 및 설치일 조율</h3>
-                    <p>투명하고 공정한 계약을 체결하고, 사장님의 매장 운영에 전혀 방해되지 않는 가장 편한 시간으로 설치 일정을 조율합니다.</p>
-                </div>
-                <div class="process-item">
-                    <h3>3. 설치 및 운영 시작</h3>
-                    <p>약 1시간 내외의 신속하고 깔끔한 설치 후, 즉시 운영을 시작합니다. 이제부터 모든 관리는 저희가 책임집니다.</p>
+        <section id="for-users">
+            <div class="container">
+                <h2>새로운 차원의 사진 경험</h2>
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="icon">🎨</div>
+                        <h3>세상에 없던 AI 필터</h3>
+                        <p>단순한 보정이 아닙니다. 명화, 애니메이션, 영화 속 주인공이 되어 세상에 단 하나뿐인 나만의 작품을 만드세요.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">📍</div>
+                        <h3>공간을 기록하는 방명록</h3>
+                        <p>내가 방문한 가게에 사진과 추억을 남겨보세요. 다른 사람들의 기록을 구경하는 재미는 덤입니다.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">🏆</div>
+                        <h3>AI 작품 수집의 재미</h3>
+                        <p>특정 장소, 특정 기간에만 얻을 수 있는 한정판 스타일을 모아 나만의 컬렉션을 완성하는 즐거움을 느껴보세요.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-    </div>
+        <section class="b2b-promo">
+            <div class="container">
+                <h2>사장님, 찾고 계신 해답이 여기 있습니다.</h2>
+                <p style="text-align:center; max-width:700px; margin: -40px auto 40px auto;">초기 비용 0원. 신경 쓸 일 0가지. 오직 추가 수익과 강력한 홍보 효과만 가져가세요.</p>
+                <a href="partnership.html" class="btn btn-primary">자세한 혜택 확인하기</a>
+            </div>
+        </section>
 
-    <section class="cta" id="contact">
-        <h2>지금 바로 문의하여<br>새로운 기회를 잡으세요.</h2>
-        <p style="color: #CFD8DC; margin-bottom: 30px;">LuminaCore의 첫 번째 파트너가 되어주십시오.<br>성공적인 비즈니스를 위해 최고의 기술과 지원을 약속드립니다.</p>
-        <a href="mailto:jmanhee@example.com?subject=Lumina Art Studio 입점 제안 문의&body=안녕하세요, LuminaCore. %0D%0A%0D%0A매장명: %0D%0A담당자 성함: %0D%0A연락처: %0D%0A%0D%0A문의 내용을 남겨주세요." class="cta-button">입점 문의하기</a>
-    </section>
+        <section id="gallery-preview">
+            <div class="container">
+                <h2>Lumina 갤러리</h2>
+                <div class="gallery-grid" style="max-height: 800px; overflow: hidden;">
+                    <img src="https://images.unsplash.com/photo-1581094651369-d5d81c6e9336?q=80&w=600" alt="AI art 1">
+                    <img src="https://images.unsplash.com/photo-1517420704952-d9f39e95b41e?q=80&w=600" alt="AI art 2">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4622f84ce?q=80&w=600" alt="AI art 3">
+                    <img src="https://images.unsplash.com/photo-1507608443338-72410a402330?q=80&w=600" alt="AI art 4">
+                </div>
+                 <div style="text-align:center; margin-top: 40px;">
+                    <a href="gallery.html" class="btn btn-secondary">갤러리 전체 보기</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <div class="container">
-            <p><strong>LuminaCore (루미나코어)</strong></p>
-            <p>대표: 정만희 | 사업자등록번호: 683-15-02637</p>
-            <p>주소: 인천 계양산로 29 | 이메일: aksgml937@gmail.com</p>
-            <p>&copy; 2025 LuminaCore. All Rights Reserved.</p>
-        </div>
+        <p><strong>LuminaCore (루미나코어)</strong> | 대표: 정만희</p>
+        <p>성공적인 비즈니스를 위해 최고의 기술과 지원을 약속드립니다.</p>
+        <p>&copy; 2025 LuminaCore. All Rights Reserved.</p>
     </footer>
 
 </body>
