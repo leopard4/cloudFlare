@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="전국의 Lumina Art Studio에서 탄생한 특별한 AI 작품들을 감상해보세요."
+      content="LuminaCore 포트폴리오 케이스 스터디. [키오스크 앱(Windows)], [SNS 앱(Web)], [중앙 API(FastAPI)]로 구성된 전체 시스템 아키텍처."
     />
-    <title>갤러리 | LuminaCore</title>
+    <title>포트폴리오: LuminaCore | LuminaCore</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -16,12 +16,12 @@
         <div class="container">
           <a href="/" class="logo">LuminaCore</a>
           <div class="nav-links">
-            <a href="about.html">브랜드 소개</a>
-            <a href="gallery.html">갤러리</a>
+            <a href="about.html">소개</a>
+            <a href="gallery.html">포트폴리오</a>
             <a href="https://luminagram-flutter-webapp.web.app" target="_blank"
               >앱 열기</a
             >
-            <a href="partnership.html" class="nav-cta">파트너 제휴 문의</a>
+            <a href="partnership.html" class="nav-cta">서비스 및 문의</a>
           </div>
         </div>
       </nav>
@@ -30,70 +30,65 @@
     <main>
       <section class="page-header">
         <div class="container">
-          <h1>Lumina 갤러리</h1>
-          <p>전국 각지에서 실시간으로 탄생하는 놀라운 작품들을 만나보세요.</p>
+          <h1>Portfolio: 'LuminaCore'</h1>
+          <p>
+            'AI 포토 키오스크' MVP는 단순한 앱이 아닌, <br />
+            <strong
+              >[키오스크 앱(Windows) + SNS 앱(Web) + 중앙 API(Server)]</strong
+            >
+            로 구성된 1인 개발 '시스템 생태계'입니다.
+          </p>
         </div>
       </section>
 
-      <section id="gallery-main">
+      <section id="tech-stack" style="padding-top: 0; padding-bottom: 20px">
+        <div class="container" style="text-align: center">
+          <p style="font-size: 1.1em; color: #bdbdbd">
+            <strong>System Architecture & Tech Stack</strong>
+          </p>
+          <p style="color: #9e9e9e; line-height: 1.8">
+            <strong>Client 1 (Kiosk):</strong> Flutter Windows App (H/W 제어)<br />
+            <strong>Client 2 (SNS):</strong> Flutter Web App (방명록/갤러리)<br />
+            <strong>Backend API:</strong> FastAPI (Python) (모든 클라이언트와
+            통신)<br />
+            <strong>Infra:</strong> Docker, Ubuntu/Windows Server, Cloudflare,
+            Tailscale
+          </p>
+        </div>
+      </section>
+
+      <section id="gallery-main" style="padding-top: 40px">
         <div class="container">
-          <div class="gallery-grid">
-            <img
-              src="https://api.lumina-core.store/media/%EC%98%88%EC%8B%9C1.png?q=80&w=600"
-              alt="Gallery Image"
-            />
-            <img
-              src="https://api.lumina-core.store/media/%EC%98%88%EC%8B%9C2.png?q=80&w=600"
-              alt="Gallery Image"
-            />
-            <img
-              src="https://api.lumina-core.store/media/%EC%98%88%EC%8B%9C3.png?q=80&w=600"
-              alt="Gallery Image"
-            />
-            <img
-              src="https://api.lumina-core.store/media/%EC%98%88%EC%8B%9C4.png?q=80&w=600"
-              alt="Gallery Image"
-            />
-            <img
-              src="https://api.lumina-core.store/media/%EC%98%88%EC%8B%9C5.png?q=80&w=600"
-              alt="Gallery Image"
-            />
-            <img
-              src="https://api.lumina-core.store/media/%EC%98%88%EC%8B%9C6.png?q=80&w=600"
-              alt="Gallery Image"
-            />
-            <img
-              src="https://api.lumina-core.store/media/%EC%98%88%EC%8B%9C7.png?q=80&w=600"
-              alt="Gallery Image"
-            />
-            <img
-              src="https://api.lumina-core.store/media/%EC%98%88%EC%8B%9C8.png?q=80&w=600"
-              alt="Gallery Image"
-            />
-            <img
-              src="https://api.lumina-core.store/media/%EC%98%88%EC%8B%9C9.png?q=80&w=600"
-              alt="Gallery Image"
-            />
-            <img
-              src="https://api.lumina-core.store/media/%EC%98%88%EC%8B%9C10.png?q=80&w=600"
-              alt="Gallery Image"
-            />
-            <img
-              src="https://api.lumina-core.store/media/%EC%98%88%EC%8B%9C11.png?q=80&w=600"
-              alt="Gallery Image"
-            />
-            <img
-              src="https://api.lumina-core.store/media/%EC%98%88%EC%8B%9C12.png?q=80&w=600"
-              alt="Gallery Image"
-            />
-          </div>
+          <h2 style="text-align: center; margin-bottom: 40px">
+            실시간 API 연동 갤러리
+          </h2>
+          <p
+            style="
+              text-align: center;
+              max-width: 600px;
+              margin: -20px auto 40px auto;
+              color: #bdbdbd;
+            "
+          >
+            (아래 갤러리는 실제 운영 중인
+            <span class="highlight">api.luminaart.shop</span>의 API에서
+            실시간으로 데이터를 로드합니다.)
+          </p>
+          <div class="gallery-grid"></div>
         </div>
         <div style="text-align: center; margin-top: 40px">
           <a
             href="https://luminagram-flutter-webapp.web.app"
             target="_blank"
             class="btn btn-primary"
-            >앱에서 더 보기</a
+            >Flutter 웹앱(Client 2) 직접 체험</a
+          >
+          <a
+            href="https://www.youtube.com/shorts/2EeN_2UHEsI"
+            target="_blank"
+            class="btn btn-secondary"
+            style="margin-left: 10px"
+            >웹앱 시연 (참고용 쇼츠)</a
           >
         </div>
       </section>
@@ -110,7 +105,7 @@
           <a
             href="http://pf.kakao.com/_ECmvn"
             target="_blank"
-            title="Lumina Art Studio 카카오톡 채널 새창으로 열기"
+            title="LuminaCore 카카오톡 채널 새창으로 열기"
             style="color: #bdbdbd; text-decoration: none"
             >카카오톡 채널</a
           >
@@ -120,6 +115,7 @@
     </footer>
 
     <script>
+      // (스크립트 내용은 동일)
       document.addEventListener("DOMContentLoaded", () => {
         fetchGalleryImages();
       });
@@ -128,19 +124,17 @@
         const galleryGrid = document.querySelector(
           "#gallery-main .gallery-grid"
         );
-        // 로딩 표시 (선택적)
         galleryGrid.innerHTML =
-          '<p style="color: white; text-align: center;">갤러리 로딩 중...</p>';
+          '<p style="color: white; text-align: center;">포트폴리오 로딩 중...</p>';
 
         try {
-          // ✅ [수정] SNS 백엔드의 실제 API 주소로 변경하세요.
           const apiUrl = "https://api.luminaart.shop/gallery/feed";
           const response = await fetch(apiUrl);
 
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
-          const images = await response.json(); // [{image_url: "..."}, ...]
+          const images = await response.json();
 
           if (images.length === 0) {
             galleryGrid.innerHTML =
@@ -148,18 +142,14 @@
             return;
           }
 
-          // 기존 로딩 메시지 삭제
           galleryGrid.innerHTML = "";
 
-          // 받아온 이미지로 <img> 태그 생성 및 추가
           images.forEach((image) => {
             const imgElement = document.createElement("img");
-            imgElement.src = image.image_url; // API가 반환한 URL 사용
+            imgElement.src = image.image_url;
             imgElement.alt = "Lumina AI Gallery Image";
-            // 로딩 실패 시 대체 텍스트 (선택적)
             imgElement.onerror = () => {
               imgElement.alt = "이미지를 로드할 수 없습니다.";
-              // imgElement.src = "대체이미지.png"; // 대체 이미지 경로
             };
             galleryGrid.appendChild(imgElement);
           });
