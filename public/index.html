@@ -143,7 +143,7 @@
             throw new Error(`HTTP error! status: ${response.status}`);
           }
           const images = await response.json();
-          const previewImages = images.slice(0, 4);
+          const previewImages = images.slice(0, 8); // 처음 8개 이미지 선택
 
           if (previewImages.length === 0) {
             galleryGrid.innerHTML =
