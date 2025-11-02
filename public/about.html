@@ -15,7 +15,18 @@
       <nav>
         <div class="container">
           <a href="/" class="logo">LuminaCore</a>
-          <div class="nav-links">
+
+          <button
+            class="mobile-nav-toggle"
+            aria-controls="nav-links"
+            aria-expanded="false"
+          >
+            <span class="sr-only">메뉴</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-links" id="nav-links">
             <a href="about.html">소개</a>
             <a href="gallery.html">포트폴리오</a>
             <a href="https://luminagram-flutter-webapp.web.app" target="_blank"
@@ -101,5 +112,6 @@
         <p>&copy; 2025 LuminaCore. All Rights Reserved.</p>
       </div>
     </footer>
+    <script src="main.js"></script>
   </body>
 </html>
