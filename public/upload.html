@@ -110,15 +110,24 @@
 
         <div id="result"></div>
     </div>
+<div class_content="privacy-notice">
+            <p>
+                <strong>[안내]</strong><br>
+                사용자 업로드 이미지 및 생성된 이미지는
+                서비스 제공 및 오류 대응을 위해 최대 24시간 보관 후 자동 삭제됩니다.
+                24시간 후에는 복구가 불가능합니다.
+            </p>
+        </div>
 
-    <script>
+    </div> <script>
+        const fileInput = document.getElementById("fileInput");
         const form = document.getElementById("uploadForm");
         const resultDiv = document.getElementById("result");
-        const fileInput = document.getElementById("file");
+        
         const fileChosenDiv = document.getElementById("file-chosen");
         const submitButton = form.querySelector('input[type="submit"]'); // 제출 버튼 선택
 
-        const MAX_FILES = 20; // 최대 파일 개수 제한
+        const MAX_FILES = 4; // 최대 파일 개수 제한
 
         const urlParams = new URLSearchParams(window.location.search);
         const txId = urlParams.get("tx_id");
