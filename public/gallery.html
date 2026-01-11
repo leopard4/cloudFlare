@@ -29,9 +29,7 @@
           <div class="nav-links" id="nav-links">
             <a href="about.html">소개</a>
             <a href="gallery.html">포트폴리오</a>
-            <a href="https://luminagram-flutter-webapp.web.app" target="_blank"
-              >앱 열기</a
-            >
+            <a href="https://luminaart.cc" target="_blank">앱 열기</a>
             <a href="partnership.html" class="nav-cta">서비스 및 문의</a>
           </div>
         </div>
@@ -86,10 +84,7 @@
           <div class="gallery-grid"></div>
         </div>
         <div style="text-align: center; margin-top: 40px">
-          <a
-            href="https://luminagram-flutter-webapp.web.app"
-            target="_blank"
-            class="btn btn-primary"
+          <a href="https://luminaart.cc" target="_blank" class="btn btn-primary"
             >방명록 웹앱(Client 2) 직접 체험</a
           >
           <a
@@ -137,7 +132,7 @@
           '<p style="color: white; text-align: center;">포트폴리오 로딩 중...</p>';
 
         try {
-          const apiUrl = "https://api.luminaart.cc/gallery/feed";
+          const apiUrl = "https://api.luminaart.cc/guestbook/gallery/feed";
           const response = await fetch(apiUrl);
 
           if (!response.ok) {
